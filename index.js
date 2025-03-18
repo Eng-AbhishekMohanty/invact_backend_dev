@@ -97,9 +97,54 @@ app.get("/email", (req, res) => {
 
     res.send(officeEmail);
 });
+app.get("/customcommit",(req,res)=>{
+    let type=req.query.type
+    let massage=req.query.massage
+    let result=type+": "+massage
+    res.send(result)
+})
+app.get("/certificate",(req,res)=>{
+    let {firstName1,lastName2,courseName}=req.query
+    let cerification ="This certification is awared to " +firstName1+" "+lastName2+" "+"for compliting the "+courseName
+    res.send(cerification)
+})
 
+app.get("/secureURL",(req,res)=>{
+let domain2=req.query.domain2
+let s_url="http://"+domain2
+res.send(s_url)
+})
+app.get("/autoreply",(req,res)=>{
+    let {startMonth,endMonth}=req.query
+    let mas="dear user ,thank you for reaching out to me ,unfortunately i'am out of office from "+startMonth +"  till"+endMonth+"your query will hendle by another colleague"
+    res.send(mas)
+})
+app.get("/sendotp",(req,res)=>{
+    let otpcode=req.query.otpcode
+    let result="your OTP for account verification is "+otpcode +"Do not shere this with anyone"
+    res.send(result)
+})
+app.get("/welcome_m",(req,res)=>{
+    let first_name=req.query.first_name
+    let gamil=req.query.gamil
+    let result="hey "+first_name+"we are exited to have you hear we will send future notification to your register mail ("+gamil +")"
+    res.send(result)
+})
 
-
+app.get("/github-profile",(req,res)=>{
+    let user_name=req.query.user_name
+    let result="https://github.com/"+user_name
+    res.send(result)
+    
+})
+app.get("/text-to-csv",(req,res)=>{
+    let id =req.query.id
+    let email=req.query.email
+    let roolnumber=req.query.roolnumber
+    let result= id +","+email+","+roolnumber
+    res.send(result)
+})
+http://localhost:3000/text-to-csv?id=6723&email=abhishekmohanty166@gmail.com&roolnumber=1234
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
