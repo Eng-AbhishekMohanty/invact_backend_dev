@@ -7,9 +7,7 @@ app.get("/total-distance",(req,res)=>{
     let distance2=parseFloat(req.query.distance2)
     let total_distance=distance1+distance2
     res.send(total_distance.toString())
-
 })
-
 app.get("/total-time",(req,res)=>{
     let time1=parseFloat(req.query.time1)
     let time2=parseFloat(req.query.time3)
@@ -118,7 +116,6 @@ app.get("/discounted-price",(req,res)=>{
     let total_cart=cardTotal*(discount/100)
     res.send(total_cart.toString())
 })
-
 app.get("/split-bill",(req,res)=>{
     let billAmount=parseFloat(req.query.billAmount)
     let numberOfFriends=parseFloat(req.query.numberOfFriends)
@@ -130,8 +127,6 @@ app.get("/celsius-to-fahrenheit",(req,res)=>{
     let fahrenheit = temperature * 9/5 + 32
     res.send(fahrenheit.toString())
 })
-
-
 
 app.get("/monthly-salarys",(req,res)=>{
     console.log("satart")
